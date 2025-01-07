@@ -1,10 +1,9 @@
 class Solution:
     def stringMatching(self, words: List[str]) -> List[str]:
         res=[]
+        ster= ' '.join(words)
+
         for word in words:
-            for other_word in words:
-                if word!=other_word and word in other_word:
-                    res.append(word)
-                    break
+            if ster.count(word)>1:
+                res.append(word)
         return res
-       
