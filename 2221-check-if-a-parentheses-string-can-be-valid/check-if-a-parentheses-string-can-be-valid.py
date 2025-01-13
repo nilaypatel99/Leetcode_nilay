@@ -1,30 +1,29 @@
 class Solution:
     def canBeValid(self, s: str, locked: str) -> bool:
-        #len of stack is always be even
-        #open stack is empty(pairs of brackets are removed and the open close must have even no of char)
-
-        if len(s)%2!=0:
-            return False
-        #if open stack is empty then check the open-close should be even
-        stack=[]
+        
+        if len(s)%2!=0:   #as only even length pairs can form valid-parentheses('()')
+            return False 
+        
+        #we'll need two stack one to monitor open and no phase change and second for phase change
+        open_stack=[]
         open_cls=[]
 
         for i in range(len(s)):
-            if locked[i]=='0':
+            if locked[i]=='0':   #for push phase change parentheses
                 open_cls.append(i)
-            elif s[i]=='(':
-                stack.append(i)
+            elif s[i]=='(':      #push no change values
+                open_stack.append(i)
             elif s[i]==')':
-                if stack:
-                    stack.pop()
+                if open_stack:
+                    open_stack.pop()
                 elif open_cls:
                     open_cls.pop()
                 else:
                     return False
-        
-        while (stack and open_cls and stack[-1]<open_cls[-1]):
-            stack.pop()
+
+        #this for right-side check close parentheses and pop
+        while open_stack and open_cls and open_stack[-1]<open_cls[-1]:
+            open_stack.pop()
             open_cls.pop()
         
-        return not stack
-
+        return not open_stack
