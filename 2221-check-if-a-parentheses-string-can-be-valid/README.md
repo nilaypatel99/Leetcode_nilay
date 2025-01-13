@@ -1,19 +1,16 @@
-<h2><a href="https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid">Check if a Parentheses String Can Be Valid</a></h2>
-<img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' />
-<hr>
-<p>A parentheses string is a <strong>non-empty</strong> string consisting only of <code>'('</code> and <code>')'</code>. It is valid if <strong>any</strong> of the following conditions is <strong>true</strong>:</p>
+<h2><a href="https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid">Check if a Parentheses String Can Be Valid</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>A parentheses string is a <strong>non-empty</strong> string consisting only of <code>&#39;(&#39;</code> and <code>&#39;)&#39;</code>. It is valid if <strong>any</strong> of the following conditions is <strong>true</strong>:</p>
 
 <ul>
-    <li>It is <code>()</code>.</li>
-    <li>It can be written as <code>AB</code> (<code>A</code> concatenated with <code>B</code>), where <code>A</code> and <code>B</code> are valid parentheses strings.</li>
-    <li>It can be written as <code>(A)</code>, where <code>A</code> is a valid parentheses string.</li>
+	<li>It is <code>()</code>.</li>
+	<li>It can be written as <code>AB</code> (<code>A</code> concatenated with <code>B</code>), where <code>A</code> and <code>B</code> are valid parentheses strings.</li>
+	<li>It can be written as <code>(A)</code>, where <code>A</code> is a valid parentheses string.</li>
 </ul>
 
-<p>You are given a parentheses string <code>s</code> and a string <code>locked</code>, both of length <code>n</code>. <code>locked</code> is a binary string consisting only of <code>'0'</code>s and <code>'1'</code>s. For <strong>each</strong> index <code>i</code> of <code>locked</code>,</p>
+<p>You are given a parentheses string <code>s</code> and a string <code>locked</code>, both of length <code>n</code>. <code>locked</code> is a binary string consisting only of <code>&#39;0&#39;</code>s and <code>&#39;1&#39;</code>s. For <strong>each</strong> index <code>i</code> of <code>locked</code>,</p>
 
 <ul>
-    <li>If <code>locked[i]</code> is <code>'1'</code>, you <strong>cannot</strong> change <code>s[i]</code>.</li>
-    <li>But if <code>locked[i]</code> is <code>'0'</code>, you <strong>can</strong> change <code>s[i]</code> to either <code>'('</code> or <code>')'</code>.</li>
+	<li>If <code>locked[i]</code> is <code>&#39;1&#39;</code>, you <strong>cannot</strong> change <code>s[i]</code>.</li>
+	<li>But if <code>locked[i]</code> is <code>&#39;0&#39;</code>, you <strong>can</strong> change <code>s[i]</code> to either <code>&#39;(&#39;</code> or <code>&#39;)&#39;</code>.</li>
 </ul>
 
 <p>Return <code>true</code> <em>if you can make <code>s</code> a valid parentheses string</em>. Otherwise, return <code>false</code>.</p>
@@ -22,16 +19,15 @@
 <p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://assets.leetcode.com/uploads/2021/11/06/eg1.png" style="width: 311px; height: 101px;" />
 <pre>
-<strong>Input:</strong> s = "))()))", locked = "010100"
+<strong>Input:</strong> s = &quot;))()))&quot;, locked = &quot;010100&quot;
 <strong>Output:</strong> true
-<strong>Explanation:</strong> locked[1] == '1' and locked[3] == '1', so we cannot change s[1] or s[3].
-We change s[0] and s[4] to '(' while leaving s[2] and s[5] unchanged to make s valid.
-</pre>
+<strong>Explanation:</strong> locked[1] == &#39;1&#39; and locked[3] == &#39;1&#39;, so we cannot change s[1] or s[3].
+We change s[0] and s[4] to &#39;(&#39; while leaving s[2] and s[5] unchanged to make s valid.</pre>
 
 <p><strong class="example">Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> s = "()()", locked = "0000"
+<strong>Input:</strong> s = &quot;()()&quot;, locked = &quot;0000&quot;
 <strong>Output:</strong> true
 <strong>Explanation:</strong> We do not need to make any changes because s is already valid.
 </pre>
@@ -39,26 +35,18 @@ We change s[0] and s[4] to '(' while leaving s[2] and s[5] unchanged to make s v
 <p><strong class="example">Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> s = ")", locked = "0"
+<strong>Input:</strong> s = &quot;)&quot;, locked = &quot;0&quot;
 <strong>Output:</strong> false
 <strong>Explanation:</strong> locked permits us to change s[0]. 
-Changing s[0] to either '(' or ')' will not make s valid.
+Changing s[0] to either &#39;(&#39; or &#39;)&#39; will not make s valid.
 </pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-    <li><code>n == s.length == locked.length</code></li>
-    <li><code>1 <= n <= 10<sup>5</sup></code></li>
-    <li><code>s[i]</code> is either <code>'('</code> or <code>')'</code>.</li>
-    <li><code>locked[i]</code> is either <code>'0'</code> or <code>'1'</code>.</li>
+	<li><code>n == s.length == locked.length</code></li>
+	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
+	<li><code>s[i]</code> is either <code>&#39;(&#39;</code> or <code>&#39;)&#39;</code>.</li>
+	<li><code>locked[i]</code> is either <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
 </ul>
-
-<p>Notes:</p>
-<div style="display: flex; gap: 10px; align-items: center;">
-    <img src="https://github.com/user-attachments/assets/c6991278-eb4d-4605-b2ce-b1245287df96" style="width: 511px; height: 301px;" alt="Notes image" />
-    <img src="https://github.com/user-attachments/assets/baed8562-986c-4f5c-831f-27e5cab604e1" style="width: 511px; height: 301px;" alt="Description of the additional image" />
-</div>
-
-
