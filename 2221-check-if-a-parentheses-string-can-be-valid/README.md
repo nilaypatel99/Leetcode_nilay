@@ -54,12 +54,11 @@ Changing s[0] to either '(' or ')' will not make s valid.
     <li><code>s[i]</code> is either <code>'('</code> or <code>')'</code>.</li>
     <li><code>locked[i]</code> is either <code>'0'</code> or <code>'1'</code>.</li>
 </ul>
-
 <p>Notes:</p>
 <div style="display: flex; gap: 10px; align-items: center;">
     <img src="https://github.com/user-attachments/assets/c6991278-eb4d-4605-b2ce-b1245287df96" style="width: 511px; height: 301px;" alt="Notes image" />
     <img src="https://github.com/user-attachments/assets/baed8562-986c-4f5c-831f-27e5cab604e1" style="width: 511px; height: 301px;" alt="Description of the additional image" />
-    <img src="![image](https://github.com/user-attachments/assets/e8fe43a6-d407-4e78-bef1-9be6bf66df1a)
-" style="width: 511px; height: 301px;" alt="Description of the additional image" />
+    <img src="https://github.com/user-attachments/assets/e8fe43a6-d407-4e78-bef1-9be6bf66df1a" style="width: 511px; height: 301px;" alt="Another additional image" />
 </div>
+
 
