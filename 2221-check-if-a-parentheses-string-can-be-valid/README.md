@@ -50,3 +50,6 @@ Changing s[0] to either &#39;(&#39; or &#39;)&#39; will not make s valid.
 	<li><code>s[i]</code> is either <code>&#39;(&#39;</code> or <code>&#39;)&#39;</code>.</li>
 	<li><code>locked[i]</code> is either <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
 </ul>
+notes
+![image](https://github.com/user-attachments/assets/c6991278-eb4d-4605-b2ce-b1245287df96)
+
