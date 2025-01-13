@@ -1,11 +1,11 @@
 class Solution:
     def minimumLength(self, s: str) -> int:
-        freq=[0]*26
-        res=0
-        for i in range(len(s)):
-            freq[ord(s[i])-ord('a')]+=1
+        freq=Counter(s)
 
-            if freq[ord(s[i])-ord('a')] == 3:
-                freq[ord(s[i])-ord('a')] -= 2
+        res=0
+        for ch,val in freq.items():
+            if val%2==0:  #if even no. of freq counts  (a..a..a..a=>a..a)
                 res+=2
-        return len(s)-res
+            else:         #if odd no. of freq counts    (a..a..a=>a)
+                res+=1
+        return res
