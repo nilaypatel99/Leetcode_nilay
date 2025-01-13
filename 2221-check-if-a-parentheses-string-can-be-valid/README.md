@@ -57,8 +57,8 @@ Changing s[0] to either '(' or ')' will not make s valid.
 
 <p>Notes:</p>
 <div style="display: flex; gap: 10px; align-items: center;">
-    <img src="https://github.com/user-attachments/assets/c6991278-eb4d-4605-b2ce-b1245287df96" style="width: 311px; height: 101px;" alt="Notes image" />
-    <img src="https://github.com/user-attachments/assets/baed8562-986c-4f5c-831f-27e5cab604e1" style="width: 311px; height: 101px;" alt="Description of the additional image" />
+    <img src="https://github.com/user-attachments/assets/c6991278-eb4d-4605-b2ce-b1245287df96" style="width: 511px; height: 301px;" alt="Notes image" />
+    <img src="https://github.com/user-attachments/assets/baed8562-986c-4f5c-831f-27e5cab604e1" style="width: 511px; height: 301px;" alt="Description of the additional image" />
 </div>
 
 
