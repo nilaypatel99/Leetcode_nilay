@@ -1,16 +1,15 @@
 class Solution:
     def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
-        n=len(A)
+        cnt=0
         res=[]
-        isPresentA=[False]*(n+1)
-        isPresentB=[False]*(n+1)
+        prf=defaultdict(int)
 
-        for i in range(n):
-            isPresentA[A[i]]=True
-            isPresentB[B[i]]=True
-            cnt=0
-            for num in range(1,n+1):
-                if isPresentA[num]==True and isPresentB[num]==True:
-                    cnt+=1
-            res.append(cnt)
+        for i in range(len(A)):
+            prf[A[i]]+=1
+            if prf[A[i]]==2:
+                cnt+=1
+            prf[B[i]]+=1
+            if prf[B[i]]==2:
+                cnt+=1
+            res.append(cnt)   
         return res
