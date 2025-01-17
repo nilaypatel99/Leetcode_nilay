@@ -1,19 +1,22 @@
 class Solution:
     def xorAllNums(self, nums1: List[int], nums2: List[int]) -> int:
-        #as xor is assiociative the even terms will be zero and odd 
-        #terms will be left
-
+        
         n=len(nums1)
         m=len(nums2)
-        res=defaultdict(int)
 
-        for num in nums1:
-            res[num]+=m
+        xor1=0
+        for num1 in nums1:
+            xor1^=num1
+        
+        xor2=0
         for num2 in nums2:
-            res[num2]+=n
-    
-        ans=0
-        for key,val in res.items():
-            if val%2!=0:
-                ans^=key
-        return ans
+            xor2^=num2
+        
+        if n%2==0 and m%2==0:
+            return 0
+        elif n%2==1 and m%2==0:
+            return xor2
+        elif n%2==0 and m%2==1:
+            return xor1
+        else:
+            return xor1^xor2
