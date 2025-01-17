@@ -12,11 +12,9 @@ class Solution:
         for num2 in nums2:
             xor2^=num2
         
-        if n%2==0 and m%2==0:
-            return 0
-        elif n%2==1 and m%2==0:
-            return xor2
-        elif n%2==0 and m%2==1:
-            return xor1
-        else:
-            return xor1^xor2
+        res=0
+        if n%2==1:
+            res^=xor2
+        if m%2==1:
+            res^=xor1
+        return res
