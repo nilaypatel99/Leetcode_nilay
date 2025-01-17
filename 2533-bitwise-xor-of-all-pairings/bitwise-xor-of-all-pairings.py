@@ -1,24 +1,19 @@
 class Solution:
     def xorAllNums(self, nums1: List[int], nums2: List[int]) -> int:
-        # XOR of all elements in nums1
-        xor_nums1 = 0
+        #as xor is assiociative the even terms will be zero and odd 
+        #terms will be left
+
+        n=len(nums1)
+        m=len(nums2)
+        res=defaultdict(int)
+
         for num in nums1:
-            xor_nums1 ^= num
-
-        # XOR of all elements in nums2
-        xor_nums2 = 0
-        for num in nums2:
-            xor_nums2 ^= num
-
-        n = len(nums1)
-        m = len(nums2)
-
-        # Case analysis based on parities of n and m
-        if (n % 2 == 0) and (m % 2 == 0):
-            return 0
-        elif (n % 2 == 1) and (m % 2 == 0):
-            return xor_nums2
-        elif (n % 2 == 0) and (m % 2 == 1):
-            return xor_nums1
-        else:
-            return xor_nums1 ^ xor_nums2
+            res[num]+=m
+        for num2 in nums2:
+            res[num2]+=n
+    
+        ans=0
+        for key,val in res.items():
+            if val%2!=0:
+                ans^=key
+        return ans
