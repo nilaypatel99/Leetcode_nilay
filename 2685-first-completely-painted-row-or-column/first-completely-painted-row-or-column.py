@@ -1,27 +1,23 @@
+from typing import List
+
 class Solution:
     def firstCompleteIndex(self, arr: List[int], mat: List[List[int]]) -> int:
-        rows=len(mat)
-        cols=len(mat[0])
-
-        chk={}
-        for r in range(rows):
-            for c in range(cols):
-                chk[mat[r][c]]=(r,c)
+        n = len(mat)
+        m = len(mat[0])
         
-        row_cnt=[0]*rows
-        col_cnt=[0]*cols
+        position = {}
+        for r in range(n):
+            for c in range(m):
+                position[mat[r][c]] = (r, c)
 
-        for i,val in enumerate(arr):
-            r,c=chk[val]
-
-            if mat[r][c]!='#':
-                mat[r][c]='#'
-
-                row_cnt[r]+=1
-                col_cnt[c]+=1
-
-                if row_cnt[r]==cols:
-                    return i
-                if col_cnt[c]==rows:
-                    return i
+        row_count = [0] * n
+        col_count = [0] * m
+        
+        for i, num in enumerate(arr):
+            r, c = position[num]
+            row_count[r] += 1
+            col_count[c] += 1
+            if row_count[r] == m or col_count[c] == n:
+                return i
+        
         return -1
