@@ -1,11 +1,13 @@
 class Solution:
     def removeOccurrences(self, s: str, part: str) -> str:
-        res = []
-        p = len(part)
+        s=list(s)
+        p=len(part)
+        r=0
 
-        for char in s:
-            res.append(char)
-            if len(res) >= p and ''.join(res[-p:]) == part:
-                del res[-p:]  # Remove the last `p` characters if they match `part`
-        
-        return ''.join(res)
+        for l in range(len(s)):
+            s[r]=s[l]
+            r+=1
+
+            if r>=p and ''.join(s[r-p:r])==part:
+                r-=p
+        return ''.join(s[:r])
