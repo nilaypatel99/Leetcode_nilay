@@ -1,23 +1,28 @@
 class Solution:
     def maximumSum(self, nums: List[int]) -> int:
+        #how to know the sum of a digit in an array
+        #and then find the max sum-->doable
 
-        digit_sum_map = defaultdict(list)
+        res=[]
 
-        # Helper function to compute sum of digits
-        def digit_sum(n):
-            return sum(int(d) for d in str(n))
+        def sumOfDigits(num):
+            summ=0
+            while num!=0:
+                last=num%10
+                summ+=last
+                num//=10
+            return summ
+        
+        mapd_sum=defaultdict(list)
 
-        # Populate the dictionary
         for num in nums:
-            dsum = digit_sum(num)
-            digit_sum_map[dsum].append(num)
+            val=sumOfDigits(num)
+            mapd_sum[val].append(num)
+        max_sum=-1
 
-        max_sum = -1
-
-        # Iterate over groups and find the max sum of two largest numbers
-        for num_list in digit_sum_map.values():
-            if len(num_list) > 1:
-                num_list.sort(reverse=True)  # Sort descending to get the two largest
-                max_sum = max(max_sum, num_list[0] + num_list[1])
+        for nl in mapd_sum.values():
+            if len(nl)>1:
+                nl.sort(reverse=True)
+                max_sum=max(max_sum,nl[0]+nl[1])
 
         return max_sum
