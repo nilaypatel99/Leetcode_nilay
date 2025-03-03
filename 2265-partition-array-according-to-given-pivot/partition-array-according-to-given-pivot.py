@@ -1,17 +1,29 @@
 class Solution:
     def pivotArray(self, nums: List[int], pivot: int) -> List[int]:
-        less_than=[]
-        equal_than=[]
-        greater_than=[]
+        less_cnt=0
+        eq_cnt=0
+        grt_cnt=0
+        res=[0]*len(nums)
 
         for i in range(len(nums)):
             if nums[i]<pivot:
-                less_than.append(nums[i])
-
+                less_cnt+=1
             elif nums[i]==pivot:
-                equal_than.append(nums[i])
-            
+                eq_cnt+=1
             else:
-                greater_than.append(nums[i])
+                grt_cnt+=1
+        i=0
+        j=less_cnt
+        k=less_cnt+eq_cnt
 
-        return less_than+equal_than+greater_than
+        for val in nums:
+            if val<pivot:
+                res[i]=val
+                i+=1
+            elif val==pivot:
+                res[j]=val
+                j+=1
+            else:
+                res[k]=val
+                k+=1
+        return res
