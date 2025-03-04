@@ -1,7 +1,14 @@
 class Solution:
     def checkPowersOfThree(self, n: int) -> bool:
-        while n > 0:
-            if n % 3 == 2:  # If remainder is 2, it's not possible to represent n this way
+        p=0
+
+        while(pow(3,p)<=n):
+            p+=1
+
+        while n>0:
+            if n>=pow(3,p):
+                n=n-pow(3,p)
+            if n>=pow(3,p):
                 return False
-            n //= 3  # Divide n by 3
+            p-=1
         return True
