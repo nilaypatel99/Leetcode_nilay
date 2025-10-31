@@ -1,11 +1,11 @@
 class Solution:
     def getSneakyNumbers(self, nums: List[int]) -> List[int]:
-        cnt = defaultdict()
+        cnt = set()
         res = []
 
         for val in nums:
             if val not in cnt:
-                cnt[val]=1
+                cnt.add(val)
             else:
                 res.append(val)
         return res
