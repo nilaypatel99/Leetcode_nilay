@@ -1,13 +1,16 @@
+from typing import List
+
 class Solution:
     def minimumBoxes(self, apple: List[int], capacity: List[int]) -> int:
-        #total capacity will always be greater than total apples
-        tot_apple=sum(apple)
-        tot_cap=sum(capacity)
-        i=0
+        total_apples = sum(apple)
 
-        while tot_apple>0:
-            my_list=sorted(capacity,reverse=True)
-            tot_apple-=my_list[i]
-            i+=1
+        capacity.sort(reverse=True)
 
-        return i
+        curr = 0
+        boxes = 0
+
+        for cap in capacity:
+            curr += cap
+            boxes += 1
+            if curr >= total_apples:
+                return boxes
