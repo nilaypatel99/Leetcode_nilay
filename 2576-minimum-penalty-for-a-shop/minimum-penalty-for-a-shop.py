@@ -1,18 +1,17 @@
 class Solution:
     def bestClosingTime(self, customers: str) -> int:
-        pen=customers.count('Y')
-        min_pen=pen
+        min_pen=customers.count("Y")
+        pen=min_pen
         best_hr=0
-        n=len(customers)
 
-        for j in range(n):
-            if customers[j]=="Y":
-                pen-=1  #open and customer so no penalty
+        for i in range(len(customers)):
+            if customers[i]=="Y":
+                pen-=1
             else:
-                pen+=1  #open but no customer so penalty
+                pen+=1
 
             if pen<min_pen:
                 min_pen=pen
-                best_hr=j+1
+                best_hr=i+1
 
         return best_hr
