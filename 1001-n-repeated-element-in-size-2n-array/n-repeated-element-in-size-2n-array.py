@@ -1,5 +1,9 @@
 class Solution:
     def repeatedNTimes(self, nums: List[int]) -> int:
-        ctr=Counter(nums)
+        res=set()
 
-        return ctr.most_common(1)[0][0]
+        for num in nums:
+            if num not in res:
+                res.add(num)
+            else:
+                return num
