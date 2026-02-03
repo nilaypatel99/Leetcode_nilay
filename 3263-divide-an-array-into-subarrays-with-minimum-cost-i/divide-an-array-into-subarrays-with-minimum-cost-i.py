@@ -1,11 +1,14 @@
 class Solution:
     def minimumCost(self, nums: List[int]) -> int:
-        first=nums[0]
-        secbest=nums[1]
-        ans=float('inf')
+        score=nums[0]
+        sec_best=float('inf')
+        third_best=float('inf')
+        
 
-        for j in range(2,len(nums)):
-            ans=min(ans,first+secbest+nums[j])
-            secbest=min(secbest,nums[j])
-
-        return ans
+        for i in range(1,len(nums)):
+            if nums[i]<sec_best:
+                third_best=sec_best
+                sec_best=nums[i]
+            elif nums[i]<third_best:
+                third_best=nums[i]
+        return score+sec_best+third_best
