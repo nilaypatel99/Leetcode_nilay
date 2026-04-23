@@ -1,37 +1,19 @@
-from itertools import combinations
 class Solution:
     def twoEditWords(self, queries: List[str], dictionary: List[str]) -> List[str]:
+        ans = []
 
-        def generate_mask(word):
-            masks=set()
-            word=list(word)
-            n=len(word)
+        for q in queries:
+            for d in dictionary:
+                diff = 0
 
-            masks.add("".join(word))
+                for i in range(len(q)):
+                    if q[i] != d[i]:
+                        diff += 1
+                    if diff > 2:
+                        break
 
-            for i in range(n):
-                temp=word[:]
-                temp[i]="*"
-                masks.add("".join(temp))
-
-            for i,j in combinations(range(n),2):
-                temp=word[:]
-                temp[i]="*"
-                temp[j]="*"
-                masks.add("".join(temp))
-            return masks
-
-        patterns=set()
-
-        for word in dictionary:
-            patterns.update(generate_mask(word))
-
-        result=[]
-
-        for word in queries:
-            for mask in generate_mask(word):
-                if mask in patterns:
-                    result.append(word)
+                if diff <= 2:
+                    ans.append(q)
                     break
-        return result
 
+        return ans
