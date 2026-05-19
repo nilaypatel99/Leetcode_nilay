@@ -1,7 +1,16 @@
 class Solution:
     def getCommon(self, nums1: List[int], nums2: List[int]) -> int:
-        res=set(nums1)&set(nums2)
+        i = j = 0
 
-        return min(res) if len(res)>0 else -1
+        while i < len(nums1) and j < len(nums2):
 
-        
+            if nums1[i] == nums2[j]:
+                return nums1[i]
+
+            elif nums1[i] < nums2[j]:
+                i += 1
+
+            else:
+                j += 1
+
+        return -1
