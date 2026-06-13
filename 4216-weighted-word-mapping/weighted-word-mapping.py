@@ -4,7 +4,7 @@ class Solution:
         #iterate through each word and calculate it's res
         #for each res letter map it back using the 26-index_pos to get the backward pos
         #join all the letters
-        res=[]
+        res=''
         for word in words:
             word_weight=0
             for ch in word:
@@ -12,5 +12,5 @@ class Solution:
                 word_weight+=weights[idx]
             mod=word_weight%26
             mapped_char=chr(ord('z')-mod)
-            res.append(mapped_char)
-        return ''.join(res)
+            res+=mapped_char
+        return res
