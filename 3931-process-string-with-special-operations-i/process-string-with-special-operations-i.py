@@ -1,16 +1,19 @@
 class Solution:
     def processStr(self, s: str) -> str:
-        res=""
+        res = []
 
-        for char in s:
-            if char.islower():
-                res+=char
-            elif char=='*':
-                res=res[:len(res)-1]
-            elif char=="#":
-                s=res
-                res+=s
-            elif char=='%':
-                res=res[::-1]
-        return res
-            
+        for ch in s:
+            if 'a' <= ch <= 'z':
+                res.append(ch)
+
+            elif ch == '*':
+                if res:
+                    res.pop()
+
+            elif ch == '#':
+                res.extend(res)
+
+            elif ch == '%':
+                res.reverse()
+
+        return ''.join(res)
